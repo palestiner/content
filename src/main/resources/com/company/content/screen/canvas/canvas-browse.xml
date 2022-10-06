@@ -33,13 +33,20 @@
     <layout expand="canvasesTable"
             spacing="true">
         <filter id="filter"
+                autoApply="true"
                 collapsed="true"
+                caption="msg://filter"
+                columnsCount="1"
+                width="450"
                 dataLoader="canvasesDl">
             <properties include=".*"/>
             <configurations>
                 <configuration id="nameConfig"
                                default="true"
+                               operation="OR"
                                name="msg://filter.name">
+                    <propertyFilter property="texture"
+                                    operation="EQUAL"/>
                     <propertyFilter property="name"
                                     operation="CONTAINS"
                                     operationEditable="true"/>
