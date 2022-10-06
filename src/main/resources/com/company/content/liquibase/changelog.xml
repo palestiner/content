@@ -9,6 +9,12 @@
 
     <property name="uuid.type" dbms="oracle" value="varchar2(32)"/>
     <property name="uuid.type" dbms="!oracle" value="uuid"/>
+    <property name="byte[].type"
+              dbms="hsqldb"
+              value="BLOB"/>
+    <property name="byte[].type"
+              dbms="postgresql"
+              value="bytea"/>
 
     <includeAll path="/com/company/content/liquibase/changelog"/>
 

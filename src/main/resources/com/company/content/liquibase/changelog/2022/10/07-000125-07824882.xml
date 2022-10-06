@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.11.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1"
+               author="content">
+        <createTable tableName="CONTENT_IMAGE">
+            <column name="ID"
+                    type="UUID">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="PK_CONTENT_IMAGE"/>
+            </column>
+            <column name="NAME"
+                    type="VARCHAR(255)"/>
+            <column name="FILE_TYPE"
+                    type="VARCHAR(255)"/>
+            <column name="SIZE_"
+                    type="VARCHAR(255)"/>
+            <column name="DATA_"
+                    type="${byte[].type}"/>
+            <column name="NOMENCLATURE_ID"
+                    type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="2"
+               author="content">
+        <createTable tableName="CONTENT_NOMENCLATURE">
+            <column name="ID"
+                    type="UUID">
+                <constraints nullable="false"
+                             primaryKey="true"
+                             primaryKeyName="PK_CONTENT_NOMENCLATURE"/>
+            </column>
+            <column name="DESCRIPTION"
+                    type="VARCHAR(255)"/>
+            <column name="CATEGORY_ID"
+                    type="UUID"/>
+            <column name="PRICE"
+                    type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3"
+               author="content">
+        <createIndex indexName="IDX_CONTENT_IMAGE_NOMENCLATURE"
+                     tableName="CONTENT_IMAGE">
+            <column name="NOMENCLATURE_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="NOMENCLATURE_ID"
+                                 baseTableName="CONTENT_IMAGE"
+                                 constraintName="FK_CONTENT_IMAGE_ON_NOMENCLATURE"
+                                 onDelete="SET NULL"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="CONTENT_NOMENCLATURE"/>
+    </changeSet>
+    <changeSet id="4"
+               author="content">
+        <createIndex indexName="IDX_CONTENT_NOMENCLATURE_CATEGORY"
+                     tableName="CONTENT_NOMENCLATURE">
+            <column name="CATEGORY_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="CATEGORY_ID"
+                                 baseTableName="CONTENT_NOMENCLATURE"
+                                 constraintName="FK_CONTENT_NOMENCLATURE_ON_CATEGORY"
+                                 onDelete="SET NULL"
+                                 referencedColumnNames="ID"
+                                 referencedTableName="CONTENT_CATEGORY"/>
+    </changeSet>
+</databaseChangeLog>

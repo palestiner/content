@@ -16,7 +16,8 @@
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
-        <screenSettings id="settingsFacet" auto="true"/>
+        <screenSettings id="settingsFacet"
+                        auto="true"/>
     </facets>
     <actions>
         <action id="lookupSelectAction"
@@ -28,16 +29,22 @@
                 caption="msg:///actions.Cancel"
                 icon="LOOKUP_CANCEL"/>
     </actions>
-    <dialogMode height="600"
-                width="800"/>
-    <layout expand="categoriesTable" spacing="true">
+    <dialogMode forceDialog="true"
+                modal="true"
+                height="600"
+                width="500"/>
+    <layout expand="categoriesTable"
+            spacing="true">
         <groupTable id="categoriesTable"
                     width="100%"
                     dataContainer="categoriesDc">
             <actions>
-                <action id="create" type="create"/>
-                <action id="edit" type="edit"/>
-                <action id="remove" type="remove"/>
+                <action id="create"
+                        type="create"/>
+                <action id="edit"
+                        type="edit"/>
+                <action id="remove"
+                        type="remove"/>
             </actions>
             <columns>
                 <column id="name"/>
@@ -45,12 +52,17 @@
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn" action="categoriesTable.create"/>
-                <button id="editBtn" action="categoriesTable.edit"/>
-                <button id="removeBtn" action="categoriesTable.remove"/>
+                <button id="createBtn"
+                        action="categoriesTable.create"/>
+                <button id="editBtn"
+                        action="categoriesTable.edit"/>
+                <button id="removeBtn"
+                        action="categoriesTable.remove"/>
             </buttonsPanel>
         </groupTable>
-        <hbox id="lookupActions" spacing="true" visible="false">
+        <hbox id="lookupActions"
+              spacing="true"
+              visible="false">
             <button action="lookupSelectAction"/>
             <button action="lookupCancelAction"/>
         </hbox>

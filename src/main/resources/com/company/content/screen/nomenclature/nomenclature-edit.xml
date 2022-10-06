@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://nomenclatureEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="nomenclatureDc"
+                  class="com.company.content.entity.Nomenclature">
+            <fetchPlan extends="_base">
+                <property name="category"
+                          fetchPlan="_base"/>
+                <property name="images"
+                          fetchPlan="_base"/>
+            </fetchPlan>
+            <loader/>
+            <instance id="categoryDc"
+                      property="category"/>
+        </instance>
+        <collection id="categoryDc"
+                    class="com.company.content.entity.Category"
+                    fetchPlan="_base">
+            <loader id="categoryLoader">
+                <query>
+                    <![CDATA[select e from content_Category e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet"
+                        auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose"
+                caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode forceDialog="true"
+                modal="true"
+                height="AUTO"
+                width="AUTO"/>
+    <layout spacing="true"
+            expand="editActions">
+        <form id="form"
+              dataContainer="nomenclatureDc">
+            <column width="350px">
+                <textField id="descriptionField"
+                           property="description"/>
+                <entityComboBox id="categoryField"
+                                nullOptionVisible="false"
+                                dataContainer="nomenclatureDc"
+                                optionsContainer="categoryDc"
+                                property="category">
+                    <actions>
+                        <action id="lookup"
+                                type="entity_lookup"/>
+                        <action id="clear"
+                                type="entity_clear"/>
+                    </actions>
+                </entityComboBox>
+                <textField id="priceField"
+                           property="price"/>
+            </column>
+        </form>
+        <hbox id="editActions"
+              spacing="true">
+            <button id="commitAndCloseBtn"
+                    action="windowCommitAndClose"/>
+            <button id="closeBtn"
+                    action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
