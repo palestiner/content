@@ -10,7 +10,8 @@
               caption="msg://com.company.content.screen.canvas/canvasBrowse.menu"
               icon="OBJECT_UNGROUP"/>
         <item screen="content_Nomenclature.browse"
-              caption="msg://com.company.content.screen.nomenclature/nomenclatureBrowse.menu"/>
+              caption="msg://com.company.content.screen.nomenclature/nomenclatureBrowse.menu"
+        icon="TH_LIST"/>
     </menu>
     <menu id="second"
           caption="msg://com.company.content/menu.second"
