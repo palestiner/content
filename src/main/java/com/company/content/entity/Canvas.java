@@ -1,6 +1,7 @@
 package com.company.content.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
@@ -18,15 +19,14 @@ import java.util.UUID;
 @Entity(name = "content_Canvas")
 public class Canvas {
 
+    @Id
     @JmixGeneratedValue
     @Column(name = "ID", nullable = false)
-    @Id
     private UUID id;
 
     @NotEmpty(message = "{msg://com.company.content.entity/Canvas.name.validation.NotBlank}")
     @NotBlank(message = "{msg://com.company.content.entity/Canvas.name.validation.NotBlank}")
     @NotNull(message = "{msg://com.company.content.entity/Canvas.name.validation.NotNull}")
-    @InstanceName
     @Column(name = "NAME")
     private String name;
 
@@ -34,9 +34,9 @@ public class Canvas {
     @Column(name = "WIDTH")
     private Integer width;
 
-    @NotNull(message = "{msg://com.company.content.entity/Canvas.category.validation.NotNull}")
-    @Column(name = "CATEGORY")
-    private String category;
+    @NotNull(message = "{msg://com.company.content.entity/Canvas.texture.validation.NotNull}")
+    @Column(name = "TEXTURE")
+    private String texture;
 
     @NotNull(message = "{msg://com.company.content.entity/Canvas.color.validation.NotNull}")
     @Column(name = "COLOR")
@@ -58,12 +58,12 @@ public class Canvas {
         this.color = color;
     }
 
-    public CanvasCategory getCategory() {
-        return category == null ? null : CanvasCategory.fromId(category);
+    public Texture getTexture() {
+        return texture == null ? null : Texture.fromId(texture);
     }
 
-    public void setCategory(CanvasCategory category) {
-        this.category = category == null ? null : category.getId();
+    public void setTexture(Texture texture) {
+        this.texture = texture == null ? null : texture.getId();
     }
 
     public String getName() {
@@ -80,5 +80,11 @@ public class Canvas {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    @InstanceName
+    @DependsOnProperties({"name", "width"})
+    public String getInstanceName() {
+        return String.format("%s [%s]", name, width);
     }
 }

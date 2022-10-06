@@ -1,0 +1,8 @@
+@import "cobalt-defaults";
+@import "addons";
+@import "cobalt";
+
+.cobalt {
+  @include addons;
+  @include cobalt;
+}

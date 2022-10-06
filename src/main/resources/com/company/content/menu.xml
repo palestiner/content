@@ -6,9 +6,9 @@
           insertBefore="administration"
           icon="BOLT"
           expanded="true">
-        <item screen="content_User.browse"
-              caption="msg://com.company.content.screen.user/UserBrowse.caption"
-              icon="USER"/>
+        <item screen="content_Canvas.browse"
+              caption="msg://com.company.content.screen.canvas/canvasBrowse.menu"
+              icon="OBJECT_UNGROUP"/>
     </menu>
     <menu id="second"
           caption="msg://com.company.content/menu.second"
@@ -21,6 +21,9 @@
     <menu id="administration"
           caption="msg://menu-config.administration"
           icon="LINUX">
+        <item screen="content_User.browse"
+              caption="msg://com.company.content.screen.user/UserBrowse.caption"
+              icon="USER"/>
         <item screen="themeSettingsScreen"
               caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"
               icon="GEARS"/>
