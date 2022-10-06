@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application"
+          caption="msg://com.company.content/menu.application"
+          insertBefore="administration"
+          icon="BOLT"
+          expanded="true">
+        <item screen="content_User.browse"
+              caption="msg://com.company.content.screen.user/UserBrowse.caption"
+              icon="USER"/>
+    </menu>
+    <menu id="second"
+          caption="msg://com.company.content/menu.second"
+          insertBefore="administration"
+          icon="GEAR">
+        <item screen="content_Category.browse"
+              caption="msg://com.company.content.screen.category/categoryBrowse.menu"
+              icon="ALIGN_LEFT"/>
+    </menu>
+    <menu id="administration"
+          caption="msg://menu-config.administration"
+          icon="LINUX">
+        <item screen="themeSettingsScreen"
+              caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"
+              icon="GEARS"/>
+    </menu>
+
+</menu-config>
