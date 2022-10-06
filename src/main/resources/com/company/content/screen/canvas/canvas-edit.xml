@@ -40,6 +40,7 @@
                 <comboBox id="textureField"
                           property="texture"/>
                 <colorPicker id="colorField"
+                             width="AUTO"
                              rgbVisible="true"
                              hsvVisible="true"
                              swatchesVisible="true"
