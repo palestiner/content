@@ -8,8 +8,6 @@
             <fetchPlan extends="_base">
                 <property name="category"
                           fetchPlan="_base"/>
-                <property name="images"
-                          fetchPlan="_base"/>
             </fetchPlan>
             <loader/>
             <instance id="categoryDc"
@@ -65,6 +63,11 @@
                 </entityComboBox>
                 <textField id="priceField"
                            property="price"/>
+                <fileStorageUpload id="imageField"
+                                   property="image"
+                                   showFileName="true"
+                                   showClearButton="true"
+                                   caption="msg://images"/>
             </column>
         </form>
         <hbox id="editActions"

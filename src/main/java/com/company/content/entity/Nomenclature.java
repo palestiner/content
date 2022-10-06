@@ -1,6 +1,7 @@
 package com.company.content.entity;
 
 import io.jmix.core.DeletePolicy;
+import io.jmix.core.FileRef;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.Composition;
@@ -9,8 +10,6 @@ import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
-import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
@@ -39,16 +38,15 @@ public class Nomenclature {
     @Column(name = "PRICE")
     private String price;
 
-    @OneToMany(mappedBy = "nomenclature", fetch = FetchType.LAZY)
-    @Size(message = "{msg://com.company.content.entity/Nomenclature.images.validation.Size}", min = 0, max = 2)
-    private List<Image> images;
+    @Column(name = "IMAGE", length = 1024)
+    private FileRef image;
 
-    public List<Image> getImages() {
-        return images;
+    public void setImage(FileRef image) {
+        this.image = image;
     }
 
-    public void setImages(List<Image> images) {
-        this.images = images;
+    public FileRef getImage() {
+        return image;
     }
 
     public String getPrice() {

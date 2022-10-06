@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://imageScreen.caption">
+
+    <dialogMode forceDialog="true"
+                modal="true"
+                width="AUTO"
+                height="AUTO"/>
+    <layout>
+        <image id="image"
+               scaleMode="SCALE_DOWN"
+               width="AUTO"
+               height="AUTO"/>
+    </layout>
+
+</window>
