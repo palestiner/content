@@ -63,7 +63,7 @@
                 </entityComboBox>
                 <textField id="priceField"
                            property="price"/>
-                <fileStorageUpload id="imageField"
+                <fileUpload id="imageField"
                                    property="image"
                                    showFileName="true"
                                    showClearButton="true"

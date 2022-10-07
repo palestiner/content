@@ -1,11 +1,11 @@
 package com.company.content.screen.image;
 
-import io.jmix.core.FileRef;
-import io.jmix.ui.component.FileStorageResource;
 import io.jmix.ui.component.Image;
-import io.jmix.ui.component.RelativePathResource;
+import io.jmix.ui.component.StreamResource;
 import io.jmix.ui.screen.*;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.ByteArrayInputStream;
 
 @UiController("content_ImageScreen")
 @UiDescriptor("image-screen.xml")
@@ -21,8 +21,7 @@ public class ImageScreen extends Screen {
             MapScreenOptions mapScreenOptions = (MapScreenOptions) options;
             Object img = mapScreenOptions.getParams().get("image");
             if (img != null) {
-                FileRef fileRef = (FileRef) img;
-                image.setSource(FileStorageResource.class).setFileReference(fileRef);
+                image.setSource(StreamResource.class).setStreamSupplier(() -> new ByteArrayInputStream((byte[]) img));
             }
         }
     }

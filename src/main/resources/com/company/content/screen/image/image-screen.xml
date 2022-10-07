@@ -9,6 +9,7 @@
     <layout>
         <image id="image"
                scaleMode="SCALE_DOWN"
+               align="MIDDLE_CENTER"
                width="AUTO"
                height="AUTO"/>
     </layout>

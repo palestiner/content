@@ -1,7 +1,6 @@
 package com.company.content.entity;
 
 import io.jmix.core.DeletePolicy;
-import io.jmix.core.FileRef;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.Composition;
@@ -38,14 +37,25 @@ public class Nomenclature {
     @Column(name = "PRICE")
     private String price;
 
-    @Column(name = "IMAGE", length = 1024)
-    private FileRef image;
+    @Column(name = "IMAGE")
+    private byte[] image;
 
-    public void setImage(FileRef image) {
+    @Column(name = "FILE_NAME")
+    private String fileName;
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
-    public FileRef getImage() {
+    public byte[] getImage() {
         return image;
     }
 
